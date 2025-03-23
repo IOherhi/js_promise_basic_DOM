@@ -19,12 +19,16 @@ promis01.then(() => {
 const promis02 = new Promise((resolve, reject) => {
   setTimeout(() => {
     if (!isResolved) {
-      reject(new Error("Promise was rejected because of timeout"));
+      reject(new Error('Promise was rejected because of timeout'));
     }
-  }, 2000);
+  }, 3000);
 });
 
 promis02.catch(() => {
-  logo.classList.add('message error-message');
-  logo.textContent = 'Promise was rejected!';
+  const div = document.createElement('div');
+
+  div.classList.add('message');
+  div.classList.add('error-message');
+  div.textContent = 'Обіцянку відхилено!';
+  document.body.append(div);
 });
